@@ -3,6 +3,12 @@
     --secondary-color: rgb(254, 189, 105);
     --tertiary-color: rgb(240, 136, 4);
     --quaternary-color: rgb(255, 255, 255);
+    --quinary-color: rgb(35, 47, 62);
+    --senary-color: rgb(15, 17, 17);
+    --seprator-color: #d5dbdb;
+    --aside-hover-color : #eaeded;
+    --close-color: red;
+
 }
 *,*::after,*::before{
     box-sizing: border-box;
@@ -14,20 +20,114 @@ body{
     font-family: sans-serif;
     font-size: 1rem;
     height: 400vh;
+    /* background-color: red; */
 }
+.none{display: none !important;}
 header{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     background-color: var(--primary-ccolor);
-    padding-inline: 15px;
-    height: 60px;
+    height: 100px;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
 }
+header .top-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding-inline: 15px;
+}
+header .bottom-header{
+    display: flex;
+    background-color: var(--quinary-color);
+    align-items: center;
+    height: 40px;
+    padding-left: 15px;
+}
+
+
+
+/* NOTE: style sub-all */
+header .bottom-header .sub-all{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -45px;
+    left: 0;
+    bottom: 0;
+}
+header .bottom-header .sub-all>div{
+    line-height: 20px;
+}
+header .bottom-header .sub-all a{
+    text-decoration: none;
+    display: block;
+    color: var(--senary-color);
+    padding: 11px;
+}
+header .bottom-header .sub-all .container-hello-sign-in{
+    background-color: var(--quinary-color);
+    padding: 4px 30px;
+}
+header .bottom-header .sub-all .sign-in-aside{
+    font-weight: bolder;
+    font-size: 1.8em;
+    color: var(--quaternary-color);
+}
+
+/* NOTE:hmenu-content container */
+header .bottom-header .sub-all .hmenu-content{
+    color: var(--senary-color);
+    background-color: var(--quaternary-color);
+}
+header .bottom-header .sub-all .hmenu-content div{
+    padding: 11px;
+    font-weight: bolder;
+}
+header .bottom-header .sub-all .hmenu-content>ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+}
+header .bottom-header .sub-all .hmenu-content>ul>li{
+    /* background-color: red; */
+    display: block;
+}
+header .bottom-header .sub-all a:hover{
+    border: none;
+    background-color: var(--aside-hover-color);
+}
+header .bottom-header .sub-all .hmenu-seprartor{
+    border: 1px solid var(--seprator-color);
+    padding: 0;
+    margin-block: 5px;
+}
+
+
+/* NOTE: style close krdne sub-all */
+.close{
+    position: absolute;
+    left: 100%;
+    top: 45px;
+    z-index: 200;
+}
+.close>i{
+    color: var(--close-color);
+    font-size: 20px;
+}
+
+
+
+
+
+/* NOTE:style top header */
+   
 header .amazon-logo img{
     width: 100px;
     margin-top: 5px;
@@ -112,10 +212,36 @@ header .shopping .cart-link .cart-quantity{
 }
 
 
+/* NOTE: style bottom-header */
+header .bottom-header>a{
+    text-decoration: none;
+    color: var(--quaternary-color);
+    padding: 11px;
+    display: block;
+    white-space: nowrap;
+    transition: all 2s ease-in;
+}
+header .bottom-header a:hover{
+    border: 1px solid var(--quaternary-color);
+}
 
 
-/* responsive */
 
-@media screen and (max-widy) {
+
+
+/*NOTE: responsive */
+
+@media screen and (max-width: 576px){
+    header .bottom-header{
+        display: none;
+    }
+
+}
+/* FIXME */
+@media screen and (max-width: 768px) {
+    header .bottom-header{
+        padding: 0;
+        overflow-x: auto;
+    }
     
 }
