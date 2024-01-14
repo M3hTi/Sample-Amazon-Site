@@ -1,0 +1,121 @@
+:root{
+    --primary-ccolor: rgb(19, 25, 33);
+    --secondary-color: rgb(254, 189, 105);
+    --tertiary-color: rgb(240, 136, 4);
+    --quaternary-color: rgb(255, 255, 255);
+}
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+body{
+    padding: 0;
+    margin: 0;
+    color: black;
+    font-family: sans-serif;
+    font-size: 1rem;
+    height: 400vh;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-ccolor);
+    padding-inline: 15px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+header .amazon-logo img{
+    width: 100px;
+    margin-top: 5px;
+}
+header .amazon-logo .amazon-link{
+    display: block;
+    width: 100%;
+    padding: 6px;
+}
+header .amazon-logo .amazon-link:hover{
+    border: 1px solid var(--quaternary-color);
+}
+header .amazon-logo .mobile-logo{
+    display: none;
+}
+header .search-bar{
+    display: flex;
+    flex: 1 1 0%;
+    max-width: 850px;
+    margin-inline: 10px;
+    /* background-color: red; */
+}
+header .search-bar .input-search-bar{
+    flex: 1 1;
+    width: 0;
+    height: 38px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    padding: 1px 2px 1px 15px;
+    font-size: 1.1em;
+
+}
+header .search-bar .search-button{
+    border: none;
+    cursor: pointer;
+    padding:  1px 6px;
+    background-color: var(--secondary-color);
+    width: 45px;
+    border-radius: 0 4px 4px 0;
+    height: 38px;
+}
+header .shopping{
+    display: flex;
+    flex-basis: 180px;
+    align-items: center;
+    justify-content: end;
+}
+
+
+header .shopping .orders-links{
+    color: var(--quaternary-color);
+    text-decoration: none;
+    padding: 6px;
+    flex: 0.25;
+}
+header .shopping .orders-links:hover{
+    border: 1px solid var(--quaternary-color);
+}
+header .shopping .cart-link{
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex: 0.75;
+}
+header .shopping .cart-link{
+    text-decoration: none;
+    color: var(--quaternary-color);
+    padding: 6px;
+}
+header .shopping .cart-link:hover{
+    border: 1px solid var(--quaternary-color)
+}
+header .shopping .cart-link .shopping-icon{
+    width: 50px;
+}
+header .shopping .cart-link .cart-quantity{
+    color: var(--tertiary-color);
+    position: absolute;
+    top: 8px;
+    left: 30px;
+    font-size: 0.8em;
+}
+
+
+
+
+/* responsive */
+
+@media screen and (max-widy) {
+    
+}
