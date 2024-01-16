@@ -7,7 +7,7 @@
     --senary-color: rgb(15, 17, 17);
     --seprator-color: #d5dbdb;
     --aside-hover-color : #eaeded;
-    --close-color: red;
+    --close-color: rgb(114, 114, 114);
 
 }
 *,*::after,*::before{
@@ -99,7 +99,7 @@ header .bottom-header .sub-all .hmenu-content>ul>li{
     /* background-color: red; */
     display: block;
 }
-header .bottom-header .sub-all a:hover{
+header .bottom-header .sub-all a:not(.sign-in-aside):hover{
     border: none;
     background-color: var(--aside-hover-color);
 }
@@ -221,7 +221,7 @@ header .bottom-header>a{
     white-space: nowrap;
     transition: all 2s ease-in;
 }
-header .bottom-header a:hover{
+header .bottom-header a:not(.sign-in-aside):hover{
     border: 1px solid var(--quaternary-color);
 }
 
@@ -232,6 +232,19 @@ header .bottom-header a:hover{
 /*NOTE: responsive */
 
 @media screen and (max-width: 576px){
+    header .top-header .amazon-logo .amazon-link{
+        display: none;
+    }
+
+    header .top-header .amazon-logo .desktop-logo{
+        display: none;
+    }
+    header .top-header .amazon-logo .mobile-logo{
+        display: block;
+        height: 35px;
+        width: 35px;
+    }
+
     header .bottom-header{
         display: none;
     }
@@ -240,8 +253,15 @@ header .bottom-header a:hover{
 /* FIXME */
 @media screen and (max-width: 768px) {
     header .bottom-header{
+        overflow: auto;
+    }
+    header .bottom-header{
         padding: 0;
         overflow-x: auto;
     }
-    
+}
+@media screen and (max-width: 1200px){
+    header .bottom-header{
+        overflow: auto;
+    }
 }
