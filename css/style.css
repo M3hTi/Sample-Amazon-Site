@@ -232,6 +232,9 @@ header .bottom-header a:not(.sign-in-aside):hover{
 /*NOTE: responsive */
 
 @media screen and (max-width: 576px){
+    header{
+        height: 60px;
+    }
     header .top-header .amazon-logo .amazon-link{
         display: none;
     }
