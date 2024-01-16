@@ -231,6 +231,8 @@ header .bottom-header a:not(.sign-in-aside):hover{
 
 /*NOTE: responsive */
 
+
+/* NOTE: responsive 576px */
 @media screen and (max-width: 576px){
     header{
         height: 60px;
@@ -253,7 +255,8 @@ header .bottom-header a:not(.sign-in-aside):hover{
     }
 
 }
-/* FIXME */
+
+/* NOTE: respnsive 768px */
 @media screen and (max-width: 768px) {
     header .bottom-header{
         overflow: auto;
@@ -263,6 +266,8 @@ header .bottom-header a:not(.sign-in-aside):hover{
         overflow-x: auto;
     }
 }
+
+/* NOTE: responsive 1200px */
 @media screen and (max-width: 1200px){
     header .bottom-header{
         overflow: auto;
