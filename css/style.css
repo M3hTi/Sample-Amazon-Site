@@ -1,5 +1,5 @@
 :root{
-    --primary-ccolor: rgb(19, 25, 33);
+    --primary-color: rgb(19, 25, 33);
     --secondary-color: rgb(254, 189, 105);
     --tertiary-color: rgb(240, 136, 4);
     --quaternary-color: rgb(255, 255, 255);
@@ -8,7 +8,7 @@
     --seprator-color: #d5dbdb;
     --aside-hover-color : #eaeded;
     --close-color: rgb(114, 114, 114);
-
+    --hover-mobile-link-drop-down: rgb(38, 50, 63);
 }
 *,*::after,*::before{
     box-sizing: border-box;
@@ -31,7 +31,7 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--primary-ccolor);
+    background-color: var(--primary-color);
     height: 100px;
     position: fixed;
     top: 0;
@@ -100,13 +100,16 @@ header .search-bar .search-button{
     border-radius: 0 4px 4px 0;
     height: 38px;
 }
-header .shopping{
+header .top-header .shopping{
     display: flex;
     flex-basis: 180px;
     align-items: center;
     justify-content: end;
 }
-header .hamburger-menu{
+header .top-header .hamburger-menu{
+    display: none;
+}
+header .top-header .hamburgerMenu-drop-down{
     display: none;
 }
 
@@ -272,6 +275,29 @@ header .bottom-header .sub-all .hmenu-seprartor{
     }
     header .top-header .hamburger-menu{
         display: block;
+    }
+    header .top-header .hamburgerMenu-drop-down{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        z-index: 100;
+        transition: height 1s;
+    }
+    header .top-header .hamburgerMenu-drop-down>a{
+        color: var(--quaternary-color);
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-weight: bolder;
+        text-align: center;
+    }
+    header .top-header .hamburgerMenu-drop-down>a:hover{
+        background-color: var(--hover-mobile-link-drop-down);
     }
     header .top-header .amazon-logo .amazon-link{
         display: none;

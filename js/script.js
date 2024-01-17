@@ -14,3 +14,15 @@ closeElement.onclick = function(e){
     subAllElement.classList.add('none');
 }
 
+// NOTE: baraye menu hamburger baraye size mobile
+let hamBurgerElement = document.querySelector('.js-hamburger-menu');
+let dropDownElement = document.querySelector('.js-ham-menu');
+
+
+hamBurgerElement.onclick = function(e){
+    e.preventDefault();
+
+    dropDownElement.classList.toggle('none');
+   
+}
+
