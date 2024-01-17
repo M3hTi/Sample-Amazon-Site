@@ -299,6 +299,9 @@ header .bottom-header .sub-all .hmenu-seprartor{
     header .top-header .hamburgerMenu-drop-down>a:hover{
         background-color: var(--hover-mobile-link-drop-down);
     }
+    header .top-header .hamburgerMenu-drop-down a .mobile-size-cart-quantity{
+        color: var(--tertiary-color);
+    }
     header .top-header .amazon-logo .amazon-link{
         display: none;
     }
