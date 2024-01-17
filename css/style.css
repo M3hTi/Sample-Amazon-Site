@@ -303,7 +303,11 @@ main .row .product-container .add-to-cart-button{
     background-color: var(--add-cart);
     border: 1px solid rgb(252, 210, 0);
 }
-
+main .row .product-container .add-to-cart-button:hover{
+    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+    background-color: rgb(247, 202, 0);
+    border: 1px solid rgb(242, 194, 0);
+}
 
 
 
