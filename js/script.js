@@ -36,6 +36,7 @@ fetch('/data/products.json')
         // console.log(result);
         productList = result;
         // console.log(products);
+        // REVIEW: baraye render(neshon dadane)krdne productlist
         showProductList();
     })
     .catch((error) => {
@@ -56,7 +57,7 @@ const showProductList = function(){
             <img src="images/rating-${product.rating.stars}.png" alt="" class="product-rating-stars">
             <p class="product-rating-count">${product.rating.count}</p>
         </div>
-        <div class="product-price">$${product.priceCents / 100}</div>
+        <div class="product-price">$${(product.priceCents / 100).toFixed(2)}</div>
         <div class="product-quantity">
             <select name="" id="">
                 <option  selected value="1">1</option>
