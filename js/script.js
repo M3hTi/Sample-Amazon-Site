@@ -73,6 +73,7 @@ const showProductList = function(){
             </select>
         </div>
         <div class="product-space"></div>
+        <div class="js-added-to-cart"></div>
         <button class="add-to-cart-button">Add to Cart</button>        
     </div>`
     htmlElement += html;
