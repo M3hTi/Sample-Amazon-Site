@@ -12,6 +12,7 @@
     --border-product-color: rgb(231, 231, 231);
     --product-rating-count: #017cb6;
     --add-cart:  rgb(255, 216, 20);
+    --clr-top-footer : #37475A;
 }
 *,*::after,*::before{
     box-sizing: border-box;
@@ -319,6 +320,56 @@ main .row .product-container .add-to-cart-button:hover{
     border: 1px solid rgb(242, 194, 0);
 }
 
+/* NOTE: style footer */
+footer .footer-top{
+    background-color: var(--clr-top-footer);
+}
+footer .footer-top>a{
+    color: var(--quaternary-color);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    transition: all 1s ease-in;
+    padding-block: 15px;
+}
+footer .footer-top>a:hover{
+    background-color: #485769;
+}
+footer .footer-bottom{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 40px;
+    background-color: var(--quinary-color);
+    gap: 100px;
+}
+footer .footer-bottom>div{
+    display: flex;
+    flex: 0 0 20%;
+    flex-direction: column;
+    padding-inline: 10px;
+    color: var(--quaternary-color);
+}
+footer .footer-bottom div .header-container{
+    font-weight: bolder;
+    margin-block: 6px 14px;
+}
+footer .footer-bottom>div ul{
+    list-style: none;
+    padding: 0;
+}
+footer .footer-bottom>div ul>li:not(:last-child){
+    margin-bottom: 10px;
+}
+footer .footer-bottom>div ul>li>a{
+    color: var(--quaternary-color);
+    text-decoration: none;
+}
+footer .footer-bottom>div ul>li>a:hover{
+    text-decoration: underline;
+}
+
 
 
 
@@ -335,10 +386,17 @@ main .row .product-container .add-to-cart-button:hover{
         flex: 0 0 20%;
     }
 }
+
+
+/* NOTE: responsive 1000px */
 @media screen and (max-width: 1000px){
     main .row .product-container{
         flex: 0 0 25%;
     }
+    footer .footer-bottom>div{
+        flex: 0 0  40%;
+    }
+
 }
 
 
@@ -416,6 +474,9 @@ main .row .product-container .add-to-cart-button:hover{
     }
     main .row .product-container{
         flex: 0 0 50%;
+    }
+    footer .footer-bottom>div{
+        flex: 0 0 70%;
     }
 
 }
