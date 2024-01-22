@@ -22,7 +22,7 @@ body{
     color: black;
     font-family: sans-serif;
     font-size: 1rem;
-    height: 400vh;
+    /* height: 400vh; */
     /* background-color: red; */
 }
 button{
@@ -287,11 +287,21 @@ main .row .product-container .product-price{
     font-weight: bolder;
     margin-bottom: 10px;
 }
-main .row .product-container .product-quantit{
+main .row .product-container .product-quantity{
     margin-bottom: 15px;
 }
 main .row .product-container .product-quantity select{
     padding: 3px 5px;
+}
+main .row .product-container .added-to-cart-message{
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    color: rgb(6, 125, 98);
+}
+main .row .product-container .added-to-cart-message>img{
+    height: 20px;
+    margin-right: 5px;
 }
 main .row .product-container .product-space{
     height: 144px;

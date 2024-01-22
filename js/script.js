@@ -35,7 +35,7 @@ fetch('/data/products.json')
     .then((result) => {
         // console.log(result);
         productList = result;
-        // console.log(products);
+        // console.log(productList);
         // REVIEW: baraye render(neshon dadane)krdne productlist
         showProductList();
     })
@@ -73,10 +73,34 @@ const showProductList = function(){
             </select>
         </div>
         <div class="product-space"></div>
-        <button class="add-to-cart-button">Add to Cart</button>        
+        <div class="added-to-cart-message">
+                    <img src="images/checkmark.png" alt="" class="none">
+        </div>
+        <button class="add-to-cart-button js-add-to-cart">Add to Cart</button>        
     </div>`
     htmlElement += html;
     }
     // console.log(htmlElement);
     document.querySelector('.js-products-row').innerHTML = htmlElement;
+
+    addedProduct();
 }
+
+
+
+
+const addedProduct = function(){
+    let addButtonElement = document.querySelectorAll('.js-add-to-cart');
+    console.log(addButtonElement);
+
+
+    for (const addButton of addButtonElement) {
+        addButton.onclick = function(){
+            console.log("added product");
+        }
+    }
+}
+
+
+
+
