@@ -273,7 +273,10 @@ main .row .product-container .product-image-container>img{
     max-height: 100%;
 }
 main .row .product-container .product-name{
-    margin-bottom: 5px;
+    margin-bottom: 40px;
+    max-height: 40px;
+    line-height: 20px; 
+    text-overflow: ellipsis;
 }
 main .row .product-container .product-rating-container{
     display: flex;

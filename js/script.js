@@ -76,7 +76,7 @@ const showProductList = function(){
         <div class="added-to-cart-message">
                     <img src="images/checkmark.png" alt="" class="none">
         </div>
-        <button class="add-to-cart-button js-add-to-cart">Add to Cart</button>        
+        <button class="add-to-cart-button js-add-to-cart" data-product-name="${product.name}">Add to Cart</button>        
     </div>`
     htmlElement += html;
     }
@@ -88,7 +88,7 @@ const showProductList = function(){
 
 
 
-
+// FIXME
 const addedProduct = function(){
     let addButtonElement = document.querySelectorAll('.js-add-to-cart');
     console.log(addButtonElement);
@@ -96,7 +96,18 @@ const addedProduct = function(){
 
     for (const addButton of addButtonElement) {
         addButton.onclick = function(){
-            console.log("added product");
+            // console.log("added product");
+            const produtName = addButton.dataset.productName;
+            // console.log(produtName);
+
+            // cart.forEach((item) =>{
+               
+            // })
+            cart.push({
+                produtName,
+                quantity : 1
+            });
+            console.log(cart); 
         }
     }
 }
