@@ -123,9 +123,19 @@ const addedProduct = function(){
                }
                cart.push(product);
            }
+           updateCartQuantity();
            console.log(cart);
         }
     }
+}
+
+// NOTE: update cart Quantity on the top right page
+const updateCartQuantity = function(){
+    let cartQuantity = 0;
+    for (const item of cart) {
+        cartQuantity += item.quantity;
+    }
+    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
 }
 
 
