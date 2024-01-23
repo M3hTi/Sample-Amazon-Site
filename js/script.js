@@ -76,7 +76,7 @@ const showProductList = function(){
         <div class="added-to-cart-message">
                     <img src="images/checkmark.png" alt="" class="none">
         </div>
-        <button class="add-to-cart-button js-add-to-cart" data-product-name="${product.name}">Add to Cart</button>        
+        <button class="add-to-cart-button js-add-to-cart" data-product-id="${product.id}">Add to Cart</button>        
     </div>`
     htmlElement += html;
     }
@@ -97,17 +97,33 @@ const addedProduct = function(){
     for (const addButton of addButtonElement) {
         addButton.onclick = function(){
             // console.log("added product");
-            const produtName = addButton.dataset.productName;
+            const productid = addButton.dataset.productId;
             // console.log(produtName);
 
-            // cart.forEach((item) =>{
-               
-            // })
-            cart.push({
-                produtName,
-                quantity : 1
-            });
-            console.log(cart); 
+
+            /* REVIEW: baraye ezafe krdne mahsole khodemon aval 1 variable matchingItem undefinded tarif mikonim
+             sepas migim k aya in item ezafe shode ma name on to cart ma mibashad y n 
+             sepas age nbod push mikonim v agar bod on ro to variable matchingItem mirizim v quantity on ro 1 vahed ezafe mkonim
+            */
+            
+            let matchingItem;
+
+           for (const item of cart) {
+                if(item.productid === productid){
+                    matchingItem = item;
+                    break;
+                }
+           }
+           if(matchingItem){
+                matchingItem.quantity++;
+           }else{
+               const product = {
+                   productid,
+                   quantity: 1
+               }
+               cart.push(product);
+           }
+           console.log(cart);
         }
     }
 }

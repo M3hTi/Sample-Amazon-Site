@@ -345,10 +345,10 @@ footer .footer-top>a:hover{
 footer .footer-bottom{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     padding-top: 40px;
     background-color: var(--quinary-color);
-    gap: 100px;
+    /* gap: 100px; */
 }
 footer .footer-bottom>div{
     display: flex;
