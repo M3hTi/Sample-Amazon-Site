@@ -64,8 +64,7 @@ header .bottom-header{
 
 
 
-/* NOTE:style top header */
-   
+/* NOTE:style top header */ 
 header .amazon-logo img{
     width: 100px;
     margin-top: 5px;
@@ -230,6 +229,9 @@ header .bottom-header .sub-all .hmenu-seprartor{
 }
 
 
+
+
+
 /* NOTE: style close krdne sub-all */
 .close{
     position: absolute;
@@ -242,6 +244,75 @@ header .bottom-header .sub-all .hmenu-seprartor{
     font-size: 20px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+/* NOTE: style checkout page */
+.checkout-header{
+    display: flex;
+    height: 60px;
+    background-color: var(--quaternary-color);
+    padding-inline: 30px;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-product-color);
+}
+.checkout-header .header-content{
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    align-items: center;
+}
+.checkout-header .left-section{
+    flex-basis: 150px;
+    /* background-color: aqua; */
+}
+.checkout-header .middle-section{
+    flex: 1 0;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* background-color: blue; */
+}
+.checkout-header .right-section{
+    flex-basis: 150px;
+    display: flex;
+    justify-content: end;
+    /* display: flex;
+    justify-content: end; */
+    /* background-color: red; */
+}
+.checkout-header .left-section .amazon-logo-ckeckout{
+    width: 100px;
+    margin-top: 12px;
+}
+.checkout-header .left-section .mobile-logo{
+    display: none;
+}
+.checkout-header .middle-section .return-to-home-link{
+    text-decoration: none;
+    font-size: 23px;
+    color: rgb(0, 113, 133);
+}
+
+
+
+
+
+
+
+
 
 
 /* NOTE: style content body */
@@ -474,6 +545,16 @@ footer .footer-bottom>div ul>li>a:hover{
         display: block;
         height: 35px;
         width: 35px;
+    }
+    .checkout-header .left-section .amazon-logo-ckeckout{
+        display: none;
+    }
+       
+    .checkout-header .left-section .mobile-logo{
+        display: block;
+        height: 35px;
+        width: 35px;
+        margin-top: 5px;
     }
 
     header .bottom-header{
