@@ -1,7 +1,4 @@
-import{cart} from '/data/cart.js';
-
-
-
+import{cart} from '/data/cart.js'
 
 let allElement = document.querySelector('.js-all-link');
 let subAllElement = document.querySelector('.js-sub-all');
@@ -36,12 +33,7 @@ hamBurgerElement.onclick = function(e){
 // NOTE: fetch data
 let productList = []
 fetch('/data/products.json')
-    .then((Response) => {
-        // console.log(Response);
-        if(!Response.ok){
-            throw new Error("Could not fetch Resources")
-        }
-        return Response.json()})
+    .then((Response) => {return Response.json()})
     .then((result) => {
         // console.log(result);
         productList = result;
@@ -50,7 +42,7 @@ fetch('/data/products.json')
         showProductList();
     })
     .catch((error) => {
-        console.error(error);
+        console.log(error);
      })
 
 const showProductList = function(){
@@ -83,7 +75,7 @@ const showProductList = function(){
             </select>
         </div>
         <div class="product-space"></div>
-        <div class="added-to-cart-message">
+        <div class="added-to-cart-message js-added-to-cart">
                     <img src="images/checkmark.png" alt="" class="none">
         </div>
         <button class="add-to-cart-button js-add-to-cart" data-product-id="${product.id}">Add to Cart</button>        
@@ -98,7 +90,7 @@ const showProductList = function(){
 
 
 
-// 
+// FIXME
 const addedProduct = function(){
     let addButtonElement = document.querySelectorAll('.js-add-to-cart');
     console.log(addButtonElement);
@@ -111,12 +103,20 @@ const addedProduct = function(){
             // console.log(produtName);
 
 
-            /* REVIEW: baraye ezafe krdne mahsole khodemon aval 1 variable matchingItem undefinded tarif mikonim
-             sepas migim k aya in item ezafe shode ma name on to cart ma mibashad y n 
-             sepas age nbod push mikonim v agar bod on ro to variable matchingItem mirizim v quantity on ro 1 vahed ezafe mkonim
-            */
             
-            let matchingItem;
+            addedToCart(productid);
+            
+
+        //  NOTE: update cart quantity in top right corner
+        updateCartQuantity();
+          
+    }
+}
+
+
+
+const addedToCart = function(productid){
+    let matchingItem;
 
            for (const item of cart) {
                 if(item.productid === productid){
@@ -133,19 +133,18 @@ const addedProduct = function(){
                }
                cart.push(product);
            }
-           updateCartQuantity();
-        //    console.log(cart);
-        }
-    }
+           console.log(cart);
+
 }
 
-// NOTE: update cart Quantity on the top right page
+// NOTE: function e update Quantity
 const updateCartQuantity = function(){
-    let cartQuantity = 0;
-    for (const item of cart) {
-        cartQuantity += item.quantity;
-    }
-    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+    let cartQantity = 0
+    cart.forEach((item) => {
+         cartQantity += item.quantity
+    })
+    document.querySelector('.js-cart-quantity').innerHTML = cartQantity;
+ }
 }
 
 
