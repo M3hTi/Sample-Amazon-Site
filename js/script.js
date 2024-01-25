@@ -33,7 +33,12 @@ hamBurgerElement.onclick = function(e){
 // NOTE: fetch data
 let productList = []
 fetch('/data/products.json')
-    .then((Response) => {return Response.json()})
+    .then((Response) => {
+        if(!Response.ok){
+            throw new Error("failed the fetch resources 💀");
+        }
+        return Response.json();
+    })
     .then((result) => {
         // console.log(result);
         productList = result;
@@ -42,7 +47,7 @@ fetch('/data/products.json')
         showProductList();
     })
     .catch((error) => {
-        console.log(error);
+        console.error(error);
      })
 
 const showProductList = function(){
@@ -134,7 +139,7 @@ const addedToCart = function(productid){
                }
                cart.push(product);
            }
-           console.log(cart);
+        //    console.log(cart);
 
 }
 
