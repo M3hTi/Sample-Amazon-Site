@@ -1,3 +1,8 @@
+import{cart} from '/data/cart.js';
+
+
+
+
 let allElement = document.querySelector('.js-all-link');
 let subAllElement = document.querySelector('.js-sub-all');
 let closeElement = document.querySelector('.js-close');
@@ -32,7 +37,7 @@ hamBurgerElement.onclick = function(e){
 let productList = []
 fetch('/data/products.json')
     .then((Response) => {
-        console.log(Response);
+        // console.log(Response);
         if(!Response.ok){
             throw new Error("Could not fetch Resources")
         }
