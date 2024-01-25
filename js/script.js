@@ -90,7 +90,7 @@ const showProductList = function(){
 
 
 
-// FIXME
+
 const addedProduct = function(){
     let addButtonElement = document.querySelectorAll('.js-add-to-cart');
     console.log(addButtonElement);
@@ -102,19 +102,20 @@ const addedProduct = function(){
             const productid = addButton.dataset.productId;
             // console.log(produtName);
 
-
-            
             addedToCart(productid);
             
 
-        //  NOTE: update cart quantity in top right corner
-        updateCartQuantity();
+            //  NOTE: update cart quantity in top right corner
+            updateCartQuantity();
           
+        }   
     }
 }
 
-
-
+/* REVIEW: baraye function e addToCart ebtada bayad befahmim k product ma to sabad kharid hast y n k age bod 
+            quantity on ro b1 vahed ezafe mikonim age nbod bayad push konim  k baraye in kar ye variable be name 
+            matchingItem dorost mikonim k bebinim be ezaye har loope k mizim aya item ma match hast ya n age bod
+            on ro to matching item miriozim*/
 const addedToCart = function(productid){
     let matchingItem;
 
@@ -137,6 +138,7 @@ const addedToCart = function(productid){
 
 }
 
+
 // NOTE: function e update Quantity
 const updateCartQuantity = function(){
     let cartQantity = 0
@@ -145,7 +147,6 @@ const updateCartQuantity = function(){
     })
     document.querySelector('.js-cart-quantity').innerHTML = cartQantity;
  }
-}
 
 
 
