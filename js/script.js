@@ -66,7 +66,7 @@ const showProductList = function(){
         </div>
         <div class="product-price">$${(product.priceCents / 100).toFixed(2)}</div>
         <div class="product-quantity">
-            <select name="" id="">
+            <select name="" id="" class="js-quantity-selector-${product.id}">
                 <option  selected value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -104,10 +104,14 @@ const addedProduct = function(){
     for (const addButton of addButtonElement) {
         addButton.onclick = function(){
             // console.log("added product");
-            const productid = addButton.dataset.productId;
-            // console.log(produtName);
 
-            addedToCart(productid);
+            // NOTE: bej aye tarif payini miaim az raveshe tarif khate 111 estefade mikonim
+            // const productId = addButton.dataset.productId;
+            // console.log(produtName);
+            const {productId} = addButton.dataset;
+            // console.log(productId);
+
+            addedToCart(productId);
             
 
             //  NOTE: update cart quantity in top right corner
@@ -116,6 +120,7 @@ const addedProduct = function(){
         }   
     }
 }
+
 
 
  
