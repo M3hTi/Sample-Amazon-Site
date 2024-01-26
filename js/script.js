@@ -45,6 +45,7 @@ fetch('/data/products.json')
         // console.log(productList);
         // REVIEW: baraye render(neshon dadane)krdne productlist
         showProductList();
+        addedProduct();
     })
     .catch((error) => {
         console.error(error);
@@ -89,8 +90,6 @@ const showProductList = function(){
     }
     // console.log(htmlElement);
     document.querySelector('.js-products-row').innerHTML = htmlElement;
-
-    addedProduct();
 }
 
 
@@ -135,6 +134,24 @@ const updateCartQuantity = function(){
     document.querySelector('.js-cart-quantity').innerHTML = cartQantity;
  }
 
+
+
+
+//  FIXME: to safhe page neshon dadan moshkel dare
+//  NOTE: baraye search krdn
+let searchElement = document.querySelector('.js-search');
+let searchButton = document.querySelector('.js-search-button')
+
+searchButton.onclick = function(e){
+    e.preventDefault();
+    let searchValue = searchElement.value;
+    console.log(searchValue);
+    let searchResult = productList.filter((product) => {
+        return product.name.includes(searchValue);
+    })
+    console.log(searchResult);
+    showProductList(searchResult);
+}
 
 
 
