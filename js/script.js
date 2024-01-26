@@ -44,14 +44,14 @@ fetch('/data/products.json')
         productList = result;
         // console.log(productList);
         // REVIEW: baraye render(neshon dadane)krdne productlist
-        showProductList();
+        showProductList(productList);
         addedProduct();
     })
     .catch((error) => {
         console.error(error);
      })
 
-const showProductList = function(){
+const showProductList = function(productList){
     let htmlElement = ``;
     for (const product of productList) {
         let html = `<div class="product-container">
@@ -137,7 +137,7 @@ const updateCartQuantity = function(){
 
 
 
-//  FIXME: to safhe page neshon dadan moshkel dare
+
 //  NOTE: baraye search krdn
 let searchElement = document.querySelector('.js-search');
 let searchButton = document.querySelector('.js-search-button')
@@ -150,7 +150,7 @@ searchButton.onclick = function(e){
         return product.name.includes(searchValue);
     })
     console.log(searchResult);
-    showProductList(searchResult);
+    showProductList(searchResult);   
 }
 
 
