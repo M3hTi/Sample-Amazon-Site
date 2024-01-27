@@ -324,21 +324,21 @@ header .bottom-header .sub-all .hmenu-seprartor{
 }
 .checkout-main .checkout-row .cart-summary{
     flex: 0 0 65%;
+
     /* background-color: yellow; */
+}
+.checkout-main .checkout-row .cart-summary .cart-item-container{
+    margin-bottom: 10px;
 }
 .checkout-main .checkout-row .payment-summary{
     flex: 0 0 30%;
     align-self: self-start;
     /* background-color: green; */
 }
-.checkout-main .checkout-row .cart-summary, .checkout-main .checkout-row .payment-summary{
+.checkout-main .checkout-row .cart-summary .cart-item-container, .checkout-main .checkout-row .payment-summary{
     border: 1px solid rgb(222, 222, 222);
     border-radius: 4px;
     padding: 18px;
-}
-.checkout-main .checkout-row .cart-summary{
-    margin-bottom: 12px;
-    padding: 10px;
 }
 .checkout-main .checkout-row .cart-summary .delivery-date{
     color: rgb(0, 118, 0);
@@ -378,7 +378,7 @@ header .bottom-header .sub-all .hmenu-seprartor{
     font-weight: 700;
     margin-bottom: 8px;
 }
-.checkout-main .checkout-row .cart-summary .cart-item-detail-row .cart-item-detail .image-details .details .product-price{
+.checkout-main .checkout-row .cart-summary .cart-item-detail-row .cart-item-detail .image-details .details .product-price, .checkout-main .checkout-row .payment-summary .total-row {
     color: rgb(177, 39, 4);
     font-weight: 700;
     margin-bottom: 5px;
@@ -422,12 +422,10 @@ header .bottom-header .sub-all .hmenu-seprartor{
     font-size: 15px;
     margin-bottom: 9px;
 }
-.checkout-main .checkout-row .cart-summary, .checkout-main .checkout-row .payment-summary .payment-summary-grid .total{
+.checkout-main .checkout-row .payment-summary .payment-summary-grid .total{
     border-top: 1px solid rgb(222, 222, 222);
 }
-/* FIXME */
-.checkout-main .checkout-row .cart-summary, .checkout-main .checkout-row .payment-summary .payment-summary-grid.total-row{
-    font-weight: 700;
+.checkout-main .checkout-row .payment-summary .payment-summary-grid.total-row{
     font-size: 18px;
     border-top: 1px solid rgb(222, 222, 222);
     padding-top: 18px;
