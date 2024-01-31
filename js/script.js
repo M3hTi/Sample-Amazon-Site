@@ -1,4 +1,5 @@
 import{cart, addedToCart} from '/data/cart.js'
+import {productList} from '/data/products.js';
 
 let allElement = document.querySelector('.js-all-link');
 let subAllElement = document.querySelector('.js-sub-all');
@@ -27,29 +28,33 @@ hamBurgerElement.onclick = function(e){
     dropDownElement.classList.toggle('none');
    
 }
+console.log(productList);
 
 
+/* BUG: ostad to khate 46 chejor mitonm producutList ro export konm?! vaghti k  file product.js
+to file data, product.json bashe nmizare qable productList export benevism
+*/
 
 // NOTE: fetch data
-let productList = []
-fetch('/data/products.json')
-    .then((Response) => {
-        if(!Response.ok){
-            throw new Error("failed the fetch resources 💀");
-        }
-        return Response.json();
-    })
-    .then((result) => {
-        // console.log(result);
-        productList = result;
-        // console.log(productList);
-        // REVIEW: baraye render(neshon dadane)krdne productlist
-        showProductList(productList);
-        addedProduct();
-    })
-    .catch((error) => {
-        console.error(error);
-     })
+// let productList = []
+// fetch('/data/products.json')
+//     .then((Response) => {
+//         if(!Response.ok){
+//             throw new Error("failed the fetch resources 💀");
+//         }
+//         return Response.json();
+//     })
+//     .then((result) => {
+//         // console.log(result);
+//         productList = result;
+//         // console.log(productList);
+//         // REVIEW: baraye render(neshon dadane)krdne productlist
+//         showProductList(productList);
+//         addedProduct();
+//     })
+//     .catch((error) => {
+//         console.error(error);
+//      })
 
 const showProductList = function(productList){
     let htmlElement = ``;
@@ -91,6 +96,10 @@ const showProductList = function(productList){
     // console.log(htmlElement);
     document.querySelector('.js-products-row').innerHTML = htmlElement;
 }
+// NOTE: call krdne showProductList function
+showProductList(productList);
+
+
 
 
 
@@ -119,6 +128,8 @@ const addedProduct = function(){
         }   
     }
 }
+// NOTE: call krdne addedProduct function
+addedProduct();
 
 
 
@@ -134,6 +145,8 @@ const updateCartQuantity = function(){
     document.querySelector('.js-cart-quantity').innerHTML = cartQantity;
  }
 
+ // NOTE: call krdne updateCartQuantity function
+updateCartQuantity();
 
 
 
