@@ -11,12 +11,12 @@ export let cart = [{
 /* REVIEW: baraye function e addToCart ebtada bayad befahmim k product ma to sabad kharid hast y n k age bod 
             quantity on ro b1 vahed ezafe mikonim age nbod bayad push konim  k baraye in kar ye variable be name 
             matchingItem dorost mikonim k bebinim be ezaye har loope k mizim aya item ma match hast ya n age bod
-            on ro to matching item miriozim*/
+            on ro to matching item mirizim*/
  export const addedToCart = function(productId){
     let matchingItem;
             
         for (const item of cart) {
-            if(item.productid === productId){
+            if(item.productId === productId){
                 matchingItem = item;
                 break;
             }
@@ -37,4 +37,11 @@ export let cart = [{
             }
             // console.log(cart);
             
+}
+
+
+
+// NOTE: function e removeFromCart
+export const removeFromCart = function(deleteId){ 
+    cart = cart.filter(item => item.productId !== deleteId ?  cart.push(item) : false );
 }

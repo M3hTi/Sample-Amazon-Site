@@ -1,4 +1,4 @@
-import { cart } from "/data/cart.js";
+import { cart,removeFromCart } from "/data/cart.js";
 import { productList } from "/data/products.js";
 
 
@@ -13,7 +13,7 @@ const showCartItem = function(){
             bashim
         */
         const matchingProduct = productList.find(product =>  product.id === productId);
-        let htmlElement = `<div class="cart-item-container">
+        let htmlElement = `<div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
         <div class="delivery-date">
             Delivery date: 
             <span class="js-delivery-date">Monday, february 5</span>
@@ -31,7 +31,7 @@ const showCartItem = function(){
                             quantity: 
                             <span class="js-quantity-label">${cartItem.quantity}</span>
                             <span class="js-update-quantity-link link-primary">Update</span>
-                            <span class="js-delete-quantity-link link-primary">Delete</span>
+                            <span class="js-delete-quantity-link link-primary" data-delete-id="${matchingProduct.id}">Delete</span>
                         </div>
                     </div>
                 </div>
@@ -67,4 +67,21 @@ const showCartItem = function(){
     console.log(html);
     document.querySelector('.js-cart-summary').innerHTML = html
 }
+// NOTE: call krdne function e showCartItem()
 showCartItem();
+
+
+// NOTE: baraye remove krdne mahsol az sabade kharidemon
+const deleteButtons = document.querySelectorAll('.js-delete-quantity-link');
+console.log(deleteButtons);
+for (const deleteButton of deleteButtons) {
+    deleteButton.onclick = function(){
+        const deleteId = deleteButton.dataset.deleteId;
+        console.log(deleteId);
+        removeFromCart(deleteId);
+
+        const removeCartItemContainer = document.querySelector(`.js-cart-item-container-${deleteId}`);
+        removeCartItemContainer.remove();
+
+    }
+}

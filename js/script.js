@@ -113,7 +113,7 @@ const addedProduct = function(){
         addButton.onclick = function(){
             // console.log("added product");
 
-            // NOTE: bej aye tarif payini miaim az raveshe tarif khate 111 estefade mikonim
+            // NOTE: in 2 ravesh paynin mese hm mibashand az nazar karkard
             // const productId = addButton.dataset.productId;
             // console.log(produtName);
             const {productId} = addButton.dataset;

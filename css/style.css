@@ -387,6 +387,10 @@ header .bottom-header .sub-all .hmenu-seprartor{
     color: #017cb6;
     cursor: pointer;
     margin-left: 3px;
+    transition: all 0.2 ease-in;
+}
+.link-primary:hover{
+    color: rgb(196, 80, 0);
 }
 .checkout-main .checkout-row .cart-summary .cart-item-detail-row .delivery-options .delivery-option-title{
     font-weight: 700;
