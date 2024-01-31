@@ -162,8 +162,10 @@ searchButton.onclick = function(e){
     let searchResult = productList.filter((product) => {
         return product.name.includes(searchValue);
     })
-    console.log(searchResult);
-    showProductList(searchResult);   
+    // console.log(searchResult);
+    showProductList(searchResult);  
+    addedProduct(); 
+    updateCartQuantity();
 }
 
 
