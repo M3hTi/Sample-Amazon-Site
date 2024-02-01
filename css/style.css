@@ -392,6 +392,15 @@ header .bottom-header .sub-all .hmenu-seprartor{
 .link-primary:hover{
     color: rgb(196, 80, 0);
 }
+.quantity-input{
+    width: 30px;
+    display: none;
+}
+.save-quantity-link{
+    display: none;
+}
+.editing-quantity .save-quantity-link, .editing-quantity .quantity-input{display: initial};
+.update-quantity{display: none;}
 .checkout-main .checkout-row .cart-summary .cart-item-detail-row .delivery-options .delivery-option-title{
     font-weight: 700;
     margin-bottom: 10px;

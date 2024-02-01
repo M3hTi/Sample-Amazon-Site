@@ -50,6 +50,8 @@ export const removeFromCart = function(deleteId){
     cart = newCart;
 
     saveToStorage();
+
+    
 }
 
 
@@ -57,3 +59,5 @@ export const removeFromCart = function(deleteId){
 const saveToStorage = function(){
      localStorage.setItem('cart', JSON.stringify(cart));
 }
+
+

@@ -30,7 +30,9 @@ const showCartItem = function(){
                         <div class="product-quantity">
                             quantity: 
                             <span class="js-quantity-label">${cartItem.quantity}</span>
-                            <span class="js-update-quantity-link link-primary">Update</span>
+                            <span class="js-update-quantity-link link-primary" data-update-id="${matchingProduct.id} update.quantity">Update</span>
+                            <input class="quantity-input editing-quantity">
+                            <span class="save-quantity-link link-primary editing-quantity">save</span>
                             <span class="js-delete-quantity-link link-primary" data-delete-id="${matchingProduct.id}">Delete</span>
                         </div>
                     </div>
@@ -71,17 +73,58 @@ const showCartItem = function(){
 showCartItem();
 
 
+
+// FIXME: variable container ro mige k null mishe!!!
+// NOTE: baraye update krdne mahsol az sabade kharidemon
+const updateButtons = document.querySelectorAll('.js-update-quantity-link');
+console.log(updateButtons);
+
+for (const updateButton of updateButtons) {
+    updateButton.onclick = function(){
+        const updateId = updateButton.dataset.updateId;
+        console.log(updateId);
+
+        const container = document.querySelector(`.js-cart-item-container-${updateId}`);
+        console.log(container);
+        // container.classList.add('editing-quantity');
+        // container.classList.add('update-quantity');
+    }
+
+}
+
+
+
+
+
+
+
+
+
 // NOTE: baraye remove krdne mahsol az sabade kharidemon
 const deleteButtons = document.querySelectorAll('.js-delete-quantity-link');
-console.log(deleteButtons);
+// console.log(deleteButtons);
 for (const deleteButton of deleteButtons) {
     deleteButton.onclick = function(){
         const deleteId = deleteButton.dataset.deleteId;
         console.log(deleteId);
         removeFromCart(deleteId);
 
+
         const removeCartItemContainer = document.querySelector(`.js-cart-item-container-${deleteId}`);
+        console.log(removeCartItemContainer);
         removeCartItemContainer.remove();
+
+        totalProductsInCart();
 
     }
 }
+
+
+const totalProductsInCart = function(){
+    let total = 0;
+    for (const cartItem of cart) {
+        total += cartItem.quantity;
+    }
+    document.querySelector('.js-total-products').innerHTML = `${total} items`;
+}
+totalProductsInCart();
