@@ -1,5 +1,8 @@
 import { cart,removeFromCart } from "/data/cart.js";
 import { productList } from "/data/products.js";
+import  dayjs  from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
+import { deliveryOptions } from "../data/deliveryoptions.js";
+
 
 
 
@@ -14,10 +17,6 @@ const showCartItem = function(){
         */
         const matchingProduct = productList.find(product =>  product.id === productId);
         let htmlElement = `<div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
-        <div class="delivery-date">
-            Delivery date: 
-            <span class="js-delivery-date">Monday, february 5</span>
-        </div>
         <div class="cart-item-detail-row">
             <div class="cart-item-detail">
                 <div class="image-details">
@@ -40,27 +39,7 @@ const showCartItem = function(){
             </div>
             <div class="delivery-options">
                 <div class="delivery-option-title">Choose a Delivary option:</div>
-                <div class="delivery-option">
-                    <input type="radio" name="delivery-${matchingProduct.id}">
-                    <div>
-                        <div class="delivery-option-date">Monday,February 5</div>
-                        <div class="delivery-option-price">FREE Shipping</div>
-                    </div>
-                </div>
-                <div class="delivery-option">
-                    <input type="radio" name="delivery-${matchingProduct.id}">
-                    <div>
-                        <div class="delivery-option-date">Tuesday,january 30</div>
-                        <div class="delivery-option-price">$4.99 - Shipping</div>
-                    </div>
-                </div>
-                <div class="delivery-option">
-                    <input type="radio" name="delivery-${matchingProduct.id}">
-                    <div>
-                        <div class="delivery-option-date">Friday, January 26</div>
-                        <div class="delivery-option-price">$9.99 - Shipping</div>
-                    </div>
-                </div>
+               ${deliveryOptionsHtml(matchingProduct)}
             </div>
         </div>
     </div>`
@@ -128,3 +107,32 @@ const totalProductsInCart = function(){
     document.querySelector('.js-total-products').innerHTML = `${total} items`;
 }
 totalProductsInCart();
+
+
+const deliveryOption = function(){
+    let now = dayjs();
+    console.log(now);
+    let deliveryDate = now.add(7, 'days').format('dddd, MMMM D');
+    console.log(deliveryDate);
+}
+deliveryOption();
+
+
+function deliveryOptionsHtml(matchingProduct){
+    let htmlElement = '';
+    for (const deliveryOption of deliveryOptions) {
+        let now = dayjs();
+        let deliveryDate = now.add(deliveryOption.deliveryDays, 'days').format('dddd, MMMM D');
+        let priceString = deliveryOption.priceCents === 0 ? 'FREE Shipping' : `$${(deliveryOption.priceCents / 100).toFixed(2)} - Shipping`;
+        let html = `
+        <div class="delivery-option">
+            <input type="radio" name="delivery-${matchingProduct.id}">
+            <div>
+                <div class="delivery-option-date">${deliveryDate}</div>
+                <div class="delivery-option-price">${priceString}</div>
+            </div>
+        </div>`
+        htmlElement += html;
+    }
+    return htmlElement;
+}

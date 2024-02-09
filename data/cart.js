@@ -27,7 +27,8 @@ export let cart = JSON.parse(localStorage.getItem('cart')) || [];
                 
                 cart.push({
                     productId,
-                    quantity
+                    quantity,
+                    deliveryOptionsId : '1',
                 });
             }
             // console.log(cart);
