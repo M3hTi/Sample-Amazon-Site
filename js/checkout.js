@@ -68,7 +68,6 @@ for (const updateButton of updateButtons) {
         // container.classList.add('editing-quantity');
         // container.classList.add('update-quantity');
     }
-
 }
 
 
