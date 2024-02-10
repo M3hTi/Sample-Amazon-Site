@@ -1,3 +1,14 @@
+ export function getProduct(productId) {
+    let matchingProduct;
+    for (const product of productList) {
+        if (product.id === productId) {
+            matchingProduct = product;
+        }
+    }
+    return matchingProduct;
+}
+
+
 export const productList = [
     {
         image : "/images/athletic-cotton-socks-6-pairs.png",

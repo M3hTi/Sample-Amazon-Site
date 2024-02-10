@@ -2,8 +2,7 @@ import { cart,removeFromCart } from "/data/cart.js";
 import { productList } from "/data/products.js";
 import  dayjs  from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { deliveryOptions } from "../data/deliveryoptions.js";
-
-
+import { renderPaymentSummary } from "./checkout/paymentsummary.js";
 
 
 const showCartItem = function(){
@@ -108,13 +107,13 @@ const totalProductsInCart = function(){
 totalProductsInCart();
 
 
-const deliveryOption = function(){
-    let now = dayjs();
-    console.log(now);
-    let deliveryDate = now.add(7, 'days').format('dddd, MMMM D');
-    console.log(deliveryDate);
-}
-deliveryOption();
+// const deliveryOption = function(){
+//     let now = dayjs();
+//     console.log(now);
+//     let deliveryDate = now.add(7, 'days').format('dddd, MMMM D');
+//     console.log(deliveryDate);
+// }
+// deliveryOption();
 
 
 function deliveryOptionsHtml(matchingProduct){
@@ -135,3 +134,5 @@ function deliveryOptionsHtml(matchingProduct){
     }
     return htmlElement;
 }
+
+renderPaymentSummary();
