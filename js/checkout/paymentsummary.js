@@ -9,12 +9,16 @@ export const renderPaymentSummary = function(){
     // console.log("Paymment");
     let productPriceCents = 0;
     let shippingPriceCents = 0;
+    let cartQuantity = 0;
     for (const cartItem of cart) {
         const product = getProduct(cartItem.productId);
         productPriceCents += product.priceCents * cartItem.quantity;
 
         const deliveryOption = getDeliveryOption(cartItem.deliveryOptionsId);
         shippingPriceCents += deliveryOption.priceCents;
+
+
+        cartQuantity += cartItem.quantity;
     }
     // console.log(productPriceCents);
     // console.log(shippingPriceCents);
@@ -22,11 +26,10 @@ export const renderPaymentSummary = function(){
     // console.log(totalBefoteTax);
     const tax = totalBefoteTax * 0.1;
     const totalAfterTax = totalBefoteTax + tax;
-    
     const htmlElement = `  <div class="js-payment-info">
     <div class="payment-summary-title">Order-summary</div>
     <div class="payment-summary-grid">
-        <span>Item(3):</span>
+        <span>Item(${cartQuantity}):</span>
         <span>$${(productPriceCents / 100).toFixed(2)}</span>
     </div>
     <div class="payment-summary-grid">

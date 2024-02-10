@@ -85,6 +85,7 @@ for (const deleteButton of deleteButtons) {
         const deleteId = deleteButton.dataset.deleteId;
         console.log(deleteId);
         removeFromCart(deleteId);
+        renderPaymentSummary();
 
 
         const removeCartItemContainer = document.querySelector(`.js-cart-item-container-${deleteId}`);
